@@ -1,0 +1,62 @@
+[
+  {
+    "Feature": "Sex_female",
+    "Importance": 0.1535405681037028
+  },
+  {
+    "Feature": "Title_Mr",
+    "Importance": 0.14522623839021484
+  },
+  {
+    "Feature": "Sex_male",
+    "Importance": 0.12308923662304389
+  },
+  {
+    "Feature": "FarePerPerson",
+    "Importance": 0.06858754511588812
+  },
+  {
+    "Feature": "Fare",
+    "Importance": 0.06101684965736316
+  },
+  {
+    "Feature": "Pclass_3",
+    "Importance": 0.05180596837051374
+  },
+  {
+    "Feature": "Age",
+    "Importance": 0.04905423857085264
+  },
+  {
+    "Feature": "Title_Mrs",
+    "Importance": 0.04801256394712528
+  },
+  {
+    "Feature": "FamilySize",
+    "Importance": 0.043668489235764725
+  },
+  {
+    "Feature": "Title_Miss",
+    "Importance": 0.03343384244954103
+  },
+  {
+    "Feature": "HasCabin_1",
+    "Importance": 0.02797360923600875
+  },
+  {
+    "Feature": "HasCabin_0",
+    "Importance": 0.024377823908962308
+  },
+  {
+    "Feature": "CabinDeck_U",
+    "Importance": 0.023585131367153896
+  },
+  {
+    "Feature": "SibSp",
+    "Importance": 0.019279757083115797
+  },
+  {
+    "Feature": "Pclass_1",
+    "Importance": 0.014155543801676655
+  }
+]

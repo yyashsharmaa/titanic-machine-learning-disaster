@@ -1,0 +1,11 @@
+{
+  "model_type": "Random Forest",
+  "cv_accuracy": 0.8372418555018516,
+  "cv_f1": 0.7777575874667151,
+  "cv_roc_auc": 0.8758003241547552,
+  "n_train_samples": 891,
+  "target_distribution": {
+    "0": 549,
+    "1": 342
+  }
+}

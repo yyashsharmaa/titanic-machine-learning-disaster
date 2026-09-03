@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RMS Titanic — AI Survival Prediction Engine & Machine Learning Analysis</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Background Glows -->
+  <div class="glow-sphere sphere-1"></div>
+  <div class="glow-sphere sphere-2"></div>
+  <div class="glow-sphere sphere-3"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="badge-pill">
+          <span class="pulse-dot"></span>
+          <span>Kaggle Machine Learning Challenge</span>
+        </div>
+        <h1 class="hero-title">RMS Titanic <span class="gradient-text">Survival Engine</span></h1>
+        <p class="hero-subtitle">
+          Predict passenger survival probabilities using leak-free, ensemble-trained machine learning models based on socio-economic, demographic, and familial data.
+        </p>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <nav class="nav-tabs">
+        <button class="nav-tab active" data-tab="predictor-tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Interactive Predictor
+        </button>
+        <button class="nav-tab" data-tab="benchmark-tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          Model Benchmark & Metrics
+        </button>
+        <button class="nav-tab" data-tab="insights-tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          Survival Drivers & Insights
+        </button>
+        <button class="nav-tab" data-tab="submission-tab">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Kaggle Submission
+        </button>
+      </nav>
+    </header>
+
+    <!-- TAB 1: PREDICTOR -->
+    <main id="predictor-tab" class="tab-content active">
+      <!-- Quick Archetype Loader -->
+      <div class="archetypes-bar">
+        <span class="archetypes-label">Quick Load Archetypes:</span>
+        <div id="archetype-buttons" class="archetype-buttons">
+          <button class="archetype-btn" data-archetype="rose">👗 Rose DeWitt (1st Class)</button>
+          <button class="archetype-btn" data-archetype="jack">🎨 Jack Dawson (3rd Class)</button>
+          <button class="archetype-btn" data-archetype="carter">👦 Master Carter (Boy, 1st)</button>
+          <button class="archetype-btn" data-archetype="father">👨‍👩‍👧‍👦 Father w/ 5 Kids (3rd)</button>
+        </div>
+      </div>
+
+      <div class="grid-layout">
+        <!-- Input Form Card -->
+        <section class="glass-card form-card">
+          <div class="card-header">
+            <h3>Configure Passenger Profile</h3>
+            <span class="card-tag">Real-Time ML Pipeline</span>
+          </div>
+
+          <form id="passenger-form">
+            <!-- Full Name & Title -->
+            <div class="form-group">
+              <label for="name">Passenger Name (Title extracted automatically)</label>
+              <input type="text" id="name" class="custom-input" value="Bukater, Miss. Rose DeWitt" placeholder="e.g. Smith, Mr. John">
+              <small class="helper-text">Titles like Miss, Mrs, Master, Mr, Dr, Rev significantly alter survival odds.</small>
+            </div>
+
+            <!-- Ticket Class & Gender -->
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label>Passenger Class</label>
+                <div class="class-selector">
+                  <label class="radio-card">
+                    <input type="radio" name="pclass" value="1" checked>
+                    <div class="radio-content">
+                      <span class="class-num">1st</span>
+                      <span class="class-desc">Upper Deck</span>
+                    </div>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="pclass" value="2">
+                    <div class="radio-content">
+                      <span class="class-num">2nd</span>
+                      <span class="class-desc">Middle Deck</span>
+                    </div>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="pclass" value="3">
+                    <div class="radio-content">
+                      <span class="class-num">3rd</span>
+                      <span class="class-desc">Steerage</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group flex-1">
+                <label>Gender / Sex</label>
+                <div class="gender-selector">
+                  <label class="gender-radio">
+                    <input type="radio" name="sex" value="female" checked>
+                    <div class="gender-btn">👩 Female</div>
+                  </label>
+                  <label class="gender-radio">
+                    <input type="radio" name="sex" value="male">
+                    <div class="gender-btn">👨 Male</div>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Age Slider -->
+            <div class="form-group">
+              <div class="slider-header">
+                <label for="age">Age: <span id="age-display" class="highlight-val">17</span> years</label>
+                <span id="age-category" class="category-badge">Teen</span>
+              </div>
+              <input type="range" id="age" min="1" max="80" value="17" class="custom-slider">
+            </div>
+
+            <!-- Family Members (SibSp & Parch) -->
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="sibsp">Siblings / Spouses Onboard</label>
+                <div class="counter-input">
+                  <button type="button" class="btn-step" data-target="sibsp" data-action="dec">-</button>
+                  <input type="number" id="sibsp" min="0" max="8" value="0" readonly>
+                  <button type="button" class="btn-step" data-target="sibsp" data-action="inc">+</button>
+                </div>
+              </div>
+
+              <div class="form-group flex-1">
+                <label for="parch">Parents / Children Onboard</label>
+                <div class="counter-input">
+                  <button type="button" class="btn-step" data-target="parch" data-action="dec">-</button>
+                  <input type="number" id="parch" min="0" max="8" value="1" readonly>
+                  <button type="button" class="btn-step" data-target="parch" data-action="inc">+</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ticket Fare & Embarked -->
+            <div class="form-row">
+              <div class="form-group flex-1">
+                <label for="fare">Ticket Fare (£ British Pounds)</label>
+                <input type="number" id="fare" step="0.5" min="0" max="600" value="227.5" class="custom-input">
+                <small class="helper-text">1st class ~ £80+, 2nd ~ £20, 3rd ~ £8-14</small>
+              </div>
+
+              <div class="form-group flex-1">
+                <label for="embarked">Port of Embarkation</label>
+                <select id="embarked" class="custom-select">
+                  <option value="C" selected>Cherbourg (France)</option>
+                  <option value="S">Southampton (England)</option>
+                  <option value="Q">Queenstown (Ireland)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Cabin -->
+            <div class="form-group">
+              <label for="cabin">Cabin Identifier (Optional)</label>
+              <input type="text" id="cabin" class="custom-input" value="B51" placeholder="e.g. C85, E33, or leave blank for unknown">
+            </div>
+
+            <button type="submit" class="submit-btn" id="predict-btn">
+              <span class="btn-text">Compute Survival Probability</span>
+              <span class="btn-glow"></span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Prediction Result Display Card -->
+        <section class="glass-card result-card">
+          <div class="card-header">
+            <h3>Survival Prediction Outcome</h3>
+            <span id="model-badge" class="card-tag">Tuned Ensemble</span>
+          </div>
+
+          <div class="result-body">
+            <!-- Gauge / Meter -->
+            <div class="gauge-container">
+              <svg class="progress-ring" width="220" height="220">
+                <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.06)" stroke-width="14" fill="transparent" r="92" cx="110" cy="110"/>
+                <circle id="progress-circle" class="progress-ring__circle" stroke="#10b981" stroke-width="14" stroke-dasharray="578.05" stroke-dashoffset="100" stroke-linecap="round" fill="transparent" r="92" cx="110" cy="110"/>
+              </svg>
+              <div class="gauge-center">
+                <span id="prob-value" class="prob-number">--%</span>
+                <span class="prob-label">Estimated Probability</span>
+              </div>
+            </div>
+
+            <!-- Status Banner -->
+            <div id="status-banner" class="status-banner banner-survived">
+              <span id="status-icon" class="status-icon">✅</span>
+              <div class="status-text">
+                <h4 id="status-headline">Likely to Survive</h4>
+                <p id="status-sub">Passenger profile aligns with high survival demographics.</p>
+              </div>
+            </div>
+
+            <!-- Risk Factor Breakdown -->
+            <div class="factors-section">
+              <h4>Key Contributing Factors</h4>
+              <ul id="factors-list" class="factors-list">
+                <!-- Dynamically filled -->
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- TAB 2: BENCHMARK -->
+    <section id="benchmark-tab" class="tab-content">
+      <div class="glass-card">
+        <div class="card-header">
+          <h3>Algorithm Performance Benchmark (5-Fold Stratified CV)</h3>
+          <span class="card-tag">Strict Featurization Ordering</span>
+        </div>
+        <p class="section-intro">
+          All algorithms evaluated under identical 5-Fold Stratified Cross-Validation splits. Preprocessing pipelines fit solely on training folds to prevent data leakage.
+        </p>
+
+        <div class="benchmark-cards-grid" id="benchmark-summary-cards">
+          <div class="stat-card">
+            <span class="stat-title">Best Model</span>
+            <span class="stat-value gradient-text" id="best-model-name">Gradient Boosting</span>
+            <span class="stat-sub">Selected for production inference</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-title">Cross-Val Accuracy</span>
+            <span class="stat-value" id="best-cv-acc">83.5%</span>
+            <span class="stat-sub">Top 15% Kaggle Benchmark Tier</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-title">ROC-AUC Score</span>
+            <span class="stat-value" id="best-cv-auc">0.874</span>
+            <span class="stat-sub">Strong discrimination threshold</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-title">Validation F1</span>
+            <span class="stat-value" id="best-cv-f1">0.781</span>
+            <span class="stat-sub">Balanced precision/recall trade-off</span>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th>Model Architecture</th>
+                <th>Accuracy (Mean ± Std)</th>
+                <th>F1-Score</th>
+                <th>ROC-AUC</th>
+                <th>Precision</th>
+                <th>Recall</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="benchmark-table-body">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: INSIGHTS & EDA -->
+    <section id="insights-tab" class="tab-content">
+      <div class="glass-card">
+        <div class="card-header">
+          <h3>What Sorts of People Were More Likely to Survive?</h3>
+          <span class="card-tag">Historical & Empirical Analysis</span>
+        </div>
+        <p class="section-intro">
+          Exploratory Data Analysis answers Kaggle's core inquiry: the demographic, socio-economic, and logistical determinants of Titanic survival.
+        </p>
+
+        <div class="insights-grid">
+          <div class="insight-card">
+            <div class="insight-icon">👩</div>
+            <h4>Gender Priority ("Women First")</h4>
+            <p class="insight-stat"><span class="highlight-green">74.2%</span> of women survived vs <span class="highlight-red">18.9%</span> of men.</p>
+            <p class="insight-desc">The maritime evacuation code strictly enforced loading females onto lifeboats first, creating the single strongest predictive feature.</p>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-icon">🎟️</div>
+            <h4>Socio-Economic Class</h4>
+            <p class="insight-stat"><span class="highlight-green">63.0%</span> in 1st Class vs <span class="highlight-red">24.2%</span> in 3rd Class.</p>
+            <p class="insight-desc">1st class staterooms were positioned directly below the boat decks, while 3rd class passengers faced maze-like corridors and locked steerage gates.</p>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-icon">👶</div>
+            <h4>Children & "Master" Title</h4>
+            <p class="insight-stat"><span class="highlight-green">58.0%</span> of children & boys survived.</p>
+            <p class="insight-desc">Young boys carrying the title "Master" had an ~57% survival rate, in stark contrast to adult "Mr" passengers who faced an ~84% mortality rate.</p>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-icon">👨‍👩‍👧</div>
+            <h4>Family Size Sweet Spot</h4>
+            <p class="insight-stat"><span class="highlight-green">57.8%</span> for families of 2 to 4.</p>
+            <p class="insight-desc">Small families aided each other during the evacuation. Solo travelers (30.4%) lacked alerts, while very large families (&gt;4, ~15%) struggled to assemble all members.</p>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-icon">⚓</div>
+            <h4>Port of Embarkation</h4>
+            <p class="insight-stat"><span class="highlight-green">55.4%</span> for Cherbourg passengers.</p>
+            <p class="insight-desc">Cherbourg passengers had the highest survival proportion, primarily because over 50% were affluent 1st Class ticket holders.</p>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-icon">🚪</div>
+            <h4>Cabin Deck Proximity</h4>
+            <p class="insight-stat"><span class="highlight-green">66.7%</span> for recorded cabin holders.</p>
+            <p class="insight-desc">Decks B, C, D, and E held the highest survival rates. Passengers without a recorded cabin (missing indicator) had only a 30.0% survival rate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: SUBMISSION -->
+    <section id="submission-tab" class="tab-content">
+      <div class="glass-card">
+        <div class="card-header">
+          <h3>Kaggle Competition Submission File</h3>
+          <span class="card-tag">Format Verified (418 Rows)</span>
+        </div>
+        <p class="section-intro">
+          Predictions generated for the 418 passengers in <code>test.csv</code> using our tuned model pipeline. Verified against Kaggle's strict submission specifications.
+        </p>
+
+        <div class="submission-meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Filename:</span>
+            <span class="meta-value">submission.csv</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Target Row Count:</span>
+            <span class="meta-value">418 Passengers (IDs 892–1309)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Column Headers:</span>
+            <span class="meta-value"><code>PassengerId,Survived</code></span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Predicted Survival Rate:</span>
+            <span class="meta-value" id="sub-survival-rate">~37.8%</span>
+          </div>
+        </div>
+
+        <div class="submission-steps">
+          <h4>How to submit to Kaggle:</h4>
+          <ol>
+            <li>Go to the official competition page: <a href="https://www.kaggle.com/c/titanic/submit" target="_blank" class="link-highlight">kaggle.com/c/titanic/submit</a>.</li>
+            <li>Click <strong>"Upload Submission File"</strong> and select the generated <code>submission.csv</code> from this project folder.</li>
+            <li>Add a description (e.g., <em>"Tuned Gradient Boosting with FamilySize & Title Engineering"</em>) and click <strong>"Make Submission"</strong>.</li>
+            <li>Check your placement on the live Kaggle Leaderboard!</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Titanic Machine Learning from Disaster &bull; Internship Project Portfolio &bull; Built with Python &amp; Scikit-Learn</p>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

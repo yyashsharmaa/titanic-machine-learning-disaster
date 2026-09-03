@@ -1,0 +1,16 @@
+# Python & Virtual Environments
+.venv/
+env/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+
+# Data & Models (large binaries)
+*.joblib
+*.pkl
+
+# OS files
+.DS_Store
+Thumbs.db
