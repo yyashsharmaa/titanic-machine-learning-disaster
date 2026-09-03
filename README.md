@@ -66,7 +66,6 @@ Titanic - Machine Learning from Disaster/
 ├── gender_submission.csv            # Kaggle benchmark baseline file
 ├── requirements.txt                 # Pinned project dependencies
 ├── README.md                        # Documentation & reproduction guide
-└── PROJECT_NOTES_AND_VIVA_PREP.md   # Comprehensive viva guide & ML theory
 ```
 
 ---
